@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Finn</title>
+</head>
+<body>
+<style type="text/css">
+	#corpo{
+		border: #000 solid 1px;
+		width: 200px;
+		height: 400px;
+		padding: 80px 100px;
+		padding-top: 20px;
+		margin: auto;
+	}
+	#cabeca{
+		display: table;
+		position: relative;
+		background-color: #fff;
+		border: #000 solid 1px;
+		padding: 10px 20px;
+		padding-top: 5px;
+		border-radius: 20%;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		margin: auto;
+	}
+	#cabeca::before{
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 15px;
+		border-radius: 0;
+		border-top-left-radius: 50%;
+		border-top-right-radius: 50%;
+		background-color: #fff;
+		border: #000 solid 1px;
+		border-bottom: none;
+		left: -1px;
+		top: -1px;
+	}
+	#cabeca::after{
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 15px;
+		border-radius: 0;
+		border-top-left-radius: 50%;
+		border-top-right-radius: 50%;
+		background-color: #fff;
+		border: #000 solid 1px;
+		border-bottom: none;
+		right: -1px;
+		top: -1px;
+	}
+	#rosto{
+		position: relative;
+	    background-color: #fcd3c1;
+	    border: #000 solid 1px;
+	    border-radius: 100%;
+	    height: 80px;
+	    width: 100px;
+	}
+	#rosto::after{
+	  content: '';
+	  position: absolute;
+	  width: 10px;
+	  height: 10px;
+	  border-radius: 50%;
+	  background-color: #000;
+	  right: 20%;
+	  top: 30%;
+	}
+	#rosto::before{
+	  content: '';
+	  position: absolute;
+	  width: 10px;
+	  height: 10px;
+	  border-radius: 50%;
+	  background-color: #000;
+	  left: 20%;
+	  top: 30%;
+	}
+	#boca{
+		position: absolute;
+		width: 100%;
+		font-size: 25px;
+		bottom: 0%;
+		left: 16%;
+		-moz-transform: rotate(90deg) scale(1, 1) skewX(0deg) skewY(0deg) translate(0, 0);/* FF3.5+ */
+		-webkit-transform: rotate(90deg) scale(1, 1) skew(0deg, 0deg) translate(0, 0);/*Saf3.1+, Chrome*/
+		-o-transform: rotate(90deg) scale(1, 1) skew(0deg, 0deg) translate(0, 0);/* Opera 10.5 */
+		-ms-transform: rotate(90deg) scale(1, 1) skew(0deg, 0deg) translate(0, 0);/* IE 9 */
+		transform: rotate(90deg) scale(1, 1) skew(0deg, 0deg) translate(0, 0);
+	}
+	#boca span{
+		top: 0;
+		position: absolute;
+	}
+	#blusa{
+		position: relative;
+		background-color: #009ddc;
+	  	border: #000 solid 1px;
+	  	border-top: none;
+		width: 65%;
+		height: 80px;
+		margin: auto;
+		display: block;
+	}
+	#blusa::before{
+	  content: '';
+	  position: absolute;
+	  width: 10px;
+	  height: 50px;
+	  border-bottom-left-radius: 10px;
+	  border-bottom-right-radius: 10px;
+	  border-top-left-radius: 10px;
+	  border-top-right-radius: 10px;
+	  background-color: #6cb444;
+	  border: #000 solid 1px;
+	  left: -11px;
+	  top: -10%;
+	}
+	#blusa::after{
+	  content: '';
+	  position: absolute;
+	  width: 10px;
+	  height: 50px;
+	  border-bottom-left-radius: 10px;
+	  border-bottom-right-radius: 10px;
+	  border-top-left-radius: 10px;
+	  border-top-right-radius: 10px;
+	  background-color: #6cb444;
+	  border: #000 solid 1px;
+	  right: -11px;
+	  top: -10%;
+	}
+	#bracos{
+	    position: relative;
+	    background-color: #fcd3c1;
+	    width: 90%;
+	    height: 30px;
+	    margin: auto;
+	    margin-bottom: -31px;
+	}
+	#bracos .esquerda{
+		position: absolute;
+		left: 0;
+		width: 20px;
+		height: 100px;
+		background-color: #fcd3c1;
+		border: #000 solid 1px;
+		border-top: #009ddc solid 30px;
+	}
+	#bracos .direita{
+		position: absolute;
+		right: 0;
+		width: 20px;
+		height: 100px;
+		background-color: #fcd3c1;
+		border: #000 solid 1px;
+		border-top: #009ddc solid 30px;
+	}
+	#short{
+		position: relative;
+		background-color: #2e67b1;
+		border: #000 solid 1px;
+		border-top: none;
+		width: 65%;
+		height: 40px;
+		margin: auto;
+		z-index: 10;
+	}
+	#short::before{
+	    content: '';
+	    position: absolute;
+	    width: 20px;
+	    height: 50px;
+	    background-color: #2e67b1;
+	    border: #000 solid 1px;
+	    border-top: none;
+	    left: -1px;
+	    top: 100%;
+	}
+	#short::after{
+	    content: '';
+	    position: absolute;
+	    width: 20px;
+	    height: 50px;
+	    background-color: #2e67b1;
+	    border: #000 solid 1px;
+	    border-top: none;
+	    right: -1px;
+	    top: 100%;
+	}
+	#pernas{
+		position: relative;
+		display: table;
+		width: 65%;
+		margin: auto;
+		z-index: 0;
+	}
+	#pernas .esquerda,
+	#pernas .direita{
+	    background-color: #fcd3c1;
+	    border: #000 solid 1px;
+	    border-bottom: #fff solid 10px;
+	    width: 20px;
+	    height: 100px;
+	}
+	#pernas .esquerda{
+		float: left;
+		margin-left: -1px;
+	}
+	#pernas .direita{
+		float: right;
+		margin-right: -1px;
+	}
+	#pernas .sapato-esquerda{
+	    position: absolute;
+	    background-color: #000;
+	    width: 22px;
+	    height: 22px;
+	    bottom: -21px;
+	    float: left;
+	    left: -1px;
+	    border-bottom-left-radius: 25%;
+	    border-bottom-right-radius: 25%;
+	}
+	#pernas .sapato-direita{
+	    position: absolute;
+	    background-color: #000;
+	    width: 22px;
+	    height: 22px;
+	    bottom: -21px;
+	    float: left;
+	    right: -1px;
+	    border-bottom-left-radius: 25%;
+	    border-bottom-right-radius: 25%;
+	}
+	h2,p{
+		margin: 0;
+		padding: 0;
+	}
+	h2{
+		margin-top: 40px;
+	}
+	h1{
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		margin-top: 40px;
+	}
+	img{
+		margin: auto;
+		display: block;
+	}
+</style>
+<div id="corpo">
+	<!-- Cabeça -->
+	<div id="cabeca">
+		<div id="rosto">
+			<div id="boca">
+				<span>)</span>
+			</div>
+	  	</div>
+	</div>
+	<!-- Braços -->
+	<div id="bracos">
+		<div class="esquerda">
+		</div>	
+		<div class="direita">
+		</div>	
+	</div>
+	<!-- blusa -->
+	<div id="blusa">
+	</div>
+	<!-- short-->
+	<div id="short">
+	</div>
+	<!-- Perninhas -->
+	<div id="pernas">
+		<div class="esquerda">
+		</div>
+		<div class="sapato-esquerda"></div>
+		<div class="direita">
+		</div>
+		<div class="sapato-direita"></div>
+	</div>
+	<h2>Finn</h2>
+	<p>Finn the Human é um dos protagonistas da série de desenho animado Hora de Aventura.</p>
+</div>
+<h1>IMAGEM DE REFERÊNCIA:</h1>
+<img src="finn.png">
+</body>
+</html>
